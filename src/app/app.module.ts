@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FavoriteModalModule } from './components/favorite-modal/favorite-modal.module';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { ProductsQueryParamsInterceptor } from './interceptors/products-query-params.interceptor';
 import { effects } from './store/app.effects';
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    FavoriteModalModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([

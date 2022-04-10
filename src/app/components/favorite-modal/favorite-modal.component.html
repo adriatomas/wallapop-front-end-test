@@ -3,7 +3,7 @@
     <h1 class="favorite-modal__title">
       {{ "favorite_modal.title" | translate }}
     </h1>
-    <app-search-input [formControl]="searchControl" [placeholder]="'Busca tus productos favoritos'"></app-search-input>
+    <app-search-input [formControl]="searchControl" [placeholder]="'favorite_modal.search' | translate"></app-search-input>
   </header>
   <section class="favorite-modal__body">
     <ng-container *ngIf="favoriteProducts?.length; else noItems">

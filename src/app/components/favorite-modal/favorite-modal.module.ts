@@ -5,7 +5,7 @@ import { SearchInputModule } from '../search-input/search-input.module';
 import { FavoriteModalComponent } from './favorite-modal.component';
 
 @NgModule({
-  imports: [SharedModule, ProductItemModule, SearchInputModule],
+  imports: [ProductItemModule, SearchInputModule, SharedModule],
   exports: [FavoriteModalComponent],
   declarations: [FavoriteModalComponent],
   providers: [],
