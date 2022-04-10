@@ -17,7 +17,8 @@
   },
   "favorite-modal": {
     "title": "List of favorite products",
-    "no_results": "There is no results here"
+    "no_results": "There is no results here",
+    "search": "Search your favorite products"
   },
   "pagination": {
     "next": "Next",

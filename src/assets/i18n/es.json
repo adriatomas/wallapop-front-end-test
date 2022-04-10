@@ -17,7 +17,8 @@
   },
   "favorite_modal": {
     "title": "Lista de productos favoritos",
-    "no_results": "No se ha encontrado nada por aquí"
+    "no_results": "No se ha encontrado nada por aquí",
+    "search": "Busca tus productos favoritos"
   },
   "pagination": {
     "next": "Siguiente",
