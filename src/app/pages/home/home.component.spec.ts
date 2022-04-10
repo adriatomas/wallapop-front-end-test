@@ -1,16 +1,25 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+  waitForAsync
+} from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ButtonModule } from '@app/components/button/button.module';
+import { PaginationComponent } from '@app/components/pagination/pagination.component';
+import { PaginationModule } from '@app/components/pagination/pagination.module';
+import { ProductItemModule } from '@app/components/product-item/product-item.module';
+import { SearchInputModule } from '@app/components/search-input/search-input.module';
 import {
   mockProductPagination,
   mockProductResponse
 } from '@app/helpers/mock-data';
 import { clickElement, findComponent } from '@app/helpers/tests.helper';
 import { FavoriteProductService } from '@app/services/favorite-product/favorite-product.service';
-import { PaginationComponent } from '@app/shared/components/pagination/pagination.component';
-import { SharedModule } from '@app/shared/shared.module';
 import {
   selectAllProducts,
   selectFavoriteProducts,
@@ -37,14 +46,17 @@ describe('HomeComponent', () => {
           FormsModule,
           ReactiveFormsModule,
           MatDialogModule,
-          SharedModule,
           StoreModule.forRoot({}),
+          ButtonModule,
+          PaginationModule,
+          ProductItemModule,
+          SearchInputModule,
         ],
         providers: [
           provideMockStore({
             initialState,
           }),
-          FavoriteProductService
+          FavoriteProductService,
         ],
         declarations: [HomeComponent, PaginationComponent],
         schemas: [NO_ERRORS_SCHEMA],
@@ -129,11 +141,14 @@ describe('HomeComponent', () => {
 
   it('should call openModal method to click button', fakeAsync(() => {
     spyOn(component, 'openFavoritesModal');
-    const manageFavorotesBtn = findComponent(fixture, '.favorites-wrapper > .favorite-wrapper__manage > button');
+    const manageFavorotesBtn = findComponent(
+      fixture,
+      '.favorites-wrapper > .favorite-wrapper__manage > button'
+    );
     clickElement(fixture, manageFavorotesBtn);
     tick();
     expect(component.openFavoritesModal).toHaveBeenCalledWith();
-  }))
+  }));
 
   it('renders noProducts template when we have an error from API', () => {
     selectAllProducts.setResult([]);

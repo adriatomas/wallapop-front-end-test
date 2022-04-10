@@ -10,14 +10,15 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { mockProduct } from '@app/helpers/mock-data';
-import { clickElement, findComponent } from '@app/helpers/tests.helper';
+import { findComponent } from '@app/helpers/tests.helper';
 import { FavoriteProductService } from '@app/services/favorite-product/favorite-product.service';
-import { SharedModule } from '@app/shared/shared.module';
 import { selectFavoriteProducts } from '@app/store/product/product.selector';
 import { initialState } from '@app/store/product/product.state';
 import { StoreModule } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { ProductItemModule } from '../product-item/product-item.module';
+import { SearchInputModule } from '../search-input/search-input.module';
 import { FavoriteModalComponent } from './favorite-modal.component';
 
 describe('FavoriteModalComponent', () => {
@@ -35,9 +36,10 @@ describe('FavoriteModalComponent', () => {
           FormsModule,
           ReactiveFormsModule,
           MatDialogModule,
-          SharedModule,
           StoreModule.forRoot({}),
           TranslateModule.forRoot(),
+          ProductItemModule,
+          SearchInputModule,
         ],
         providers: [
           provideMockStore({

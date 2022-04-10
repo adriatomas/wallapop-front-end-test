@@ -10,7 +10,7 @@ import { PaginationInfo } from '@app/models/pagination-info.model';
 import { ProductFilterParams } from '@app/models/product-filter-params.model';
 import { Product } from '@app/models/product.model';
 import { FavoriteProductService } from '@app/services/favorite-product/favorite-product.service';
-import { FavoriteModalComponent } from '@app/shared/components/favorite-modal/favorite-modal.component';
+import { FavoriteModalComponent } from '@app/components/favorite-modal/favorite-modal.component';
 import { AppState } from '@app/store/app.reducers';
 import {
   addFavoritePoducts,

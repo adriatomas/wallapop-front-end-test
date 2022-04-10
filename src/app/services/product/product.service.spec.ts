@@ -4,12 +4,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import {
-  GET_PRODUCTS_URL,
-  mockProductList,
-  mockProductResponse,
-} from '@app/helpers/mock-data';
-import { ProductsResponse } from '@app/models/products-response.model';
+import { GET_PRODUCTS_URL, mockProductResponse } from '@app/helpers/mock-data';
 import { ProductService } from './product.service';
 
 describe('Service: Product', () => {

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BaseService } from '@app/core/services/api-base.service';
 import { PaginationInfo } from '@app/models/pagination-info.model';
 import { ProductFilterParams } from '@app/models/product-filter-params.model';
-import { Product } from '@app/models/product.model';
 import { ProductsResponse } from '@app/models/products-response.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

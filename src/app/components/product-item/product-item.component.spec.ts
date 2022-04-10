@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { mockProduct } from '@app/helpers/mock-data';
 import { findComponent } from '@app/helpers/tests.helper';
-import { SharedModule } from '@app/shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProductItemComponent } from './product-item.component';
 
@@ -13,7 +12,7 @@ describe('ProductItemComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [ProductItemComponent],
-        imports: [TranslateModule.forRoot(), SharedModule],
+        imports: [TranslateModule.forRoot()],
       }).compileComponents();
     })
   );
@@ -29,7 +28,7 @@ describe('ProductItemComponent', () => {
   });
 
   it('should render product data', () => {
-    fixture.detectChanges()
+    fixture.detectChanges();
     const productImg = findComponent(fixture, '.product__img > img');
     const productTitle = findComponent(
       fixture,
@@ -48,10 +47,7 @@ describe('ProductItemComponent', () => {
     fixture.detectChanges();
 
     const productImg = findComponent(fixture, '.product__img > img');
-    const productTitle = findComponent(
-      fixture,
-      '.product__content--title'
-    );
+    const productTitle = findComponent(fixture, '.product__content--title');
     const productPrice = findComponent(fixture, '.product__header--price');
     const productEmail = findComponent(fixture, '.product__content--email');
 

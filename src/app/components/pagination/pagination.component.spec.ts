@@ -1,24 +1,32 @@
-import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
-import { mockProductPagination, mockPagininationWithoutNext, mockPagininationWithoutPrev } from '@app/helpers/mock-data';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+  waitForAsync,
+} from '@angular/core/testing';
+import {
+  mockPagininationWithoutNext,
+  mockPagininationWithoutPrev,
+  mockProductPagination,
+} from '@app/helpers/mock-data';
 import { clickElement, findComponent } from '@app/helpers/tests.helper';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { PaginationComponent } from './pagination.component';
 
-
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        TranslateModule.forRoot()
-      ],
-      declarations: [PaginationComponent]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [TranslateModule.forRoot()],
+        declarations: [PaginationComponent],
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
@@ -47,7 +55,10 @@ describe('PaginationComponent', () => {
     component.pagination$ = of(mockPagininationWithoutPrev.info);
     fixture.detectChanges();
 
-    const prevButton = findComponent(fixture, '.button-group > .button:first-child');
+    const prevButton = findComponent(
+      fixture,
+      '.button-group > .button:first-child'
+    );
 
     expect(prevButton.nativeElement.disabled).toBeTruthy();
   });
@@ -56,7 +67,10 @@ describe('PaginationComponent', () => {
     component.pagination$ = of(mockPagininationWithoutNext.info);
     fixture.detectChanges();
 
-    const prevButton = findComponent(fixture, '.button-group > .button:last-child');
+    const prevButton = findComponent(
+      fixture,
+      '.button-group > .button:last-child'
+    );
 
     expect(prevButton.nativeElement.disabled).toBeTruthy();
   });
@@ -66,11 +80,14 @@ describe('PaginationComponent', () => {
     component.pagination$ = of(mockProductPagination.info);
     fixture.detectChanges();
 
-    const nextButton = findComponent(fixture, '.button-group > .button:last-child');
+    const nextButton = findComponent(
+      fixture,
+      '.button-group > .button:last-child'
+    );
     clickElement(fixture, nextButton);
     tick();
 
-    expect(component.nextPage.emit).toHaveBeenCalledWith()
+    expect(component.nextPage.emit).toHaveBeenCalledWith();
   }));
 
   it('should emit next on prev button click', fakeAsync(() => {
@@ -78,11 +95,13 @@ describe('PaginationComponent', () => {
     component.pagination$ = of(mockPagininationWithoutNext.info);
     fixture.detectChanges();
 
-    const prevButton = findComponent(fixture, '.button-group > .button:first-child');
+    const prevButton = findComponent(
+      fixture,
+      '.button-group > .button:first-child'
+    );
     clickElement(fixture, prevButton);
     tick();
 
-    expect(component.prevPage.emit).toHaveBeenCalled()
+    expect(component.prevPage.emit).toHaveBeenCalled();
   }));
-
 });
