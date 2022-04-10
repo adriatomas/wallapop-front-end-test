@@ -1,0 +1,27 @@
+<div class="favorite-modal">
+  <header>
+    <h1 class="favorite-modal__title">
+      {{ "favorite_modal.title" | translate }}
+    </h1>
+    <app-search-input [formControl]="searchControl" [placeholder]="'Busca tus productos favoritos'"></app-search-input>
+  </header>
+  <section class="favorite-modal__body">
+    <ng-container *ngIf="favoriteProducts?.length; else noItems">
+      <div class="favorite-modal__products">
+        <app-product-item
+          *ngFor="let product of favoriteProducts"
+          [favoriteView]="true"
+          [product]="product"
+          [isFavorite]="favoriteProductService.isFavoriteProduct(product)"
+          (toggleFavorite)="removeProduct($event, product)"
+        ></app-product-item>
+      </div>
+    </ng-container>
+  </section>
+</div>
+
+<ng-template #noItems>
+  <p class="favorite-modal__no-items">
+    {{'favorite_modal.no_results' | translate}}
+  </p>
+</ng-template>

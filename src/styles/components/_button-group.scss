@@ -1,0 +1,30 @@
+.button-group {
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 40px;
+  z-index: 1;
+  .button {
+    background: $secondary-color;
+    border: none;
+    color: $white-color;
+    cursor: pointer;
+    min-width: 80px;
+
+    &:disabled {
+      cursor: initial;
+      color: rgba(255,255,255,0.5);
+    }
+
+    &:first-child {
+      border-bottom-left-radius: 8px;
+      border-right: solid $gray-color 0.5px;
+      border-top-left-radius: 8px;
+    }
+    &:last-child {
+      border-bottom-right-radius: 8px;
+      border-left: solid $gray-color 0.5px;
+      border-top-right-radius: 8px;
+    }
+  }
+}

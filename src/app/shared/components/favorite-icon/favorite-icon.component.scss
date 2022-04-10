@@ -1,0 +1,15 @@
+@import "../../../../styles/vars";
+
+.favorite-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  &__path {
+    stroke: $red-color;
+    stroke-width: 20px;
+    fill: $white-color;
+    &--selected {
+      fill: $red-color;
+    }
+  }
+}

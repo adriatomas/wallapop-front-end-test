@@ -1,0 +1,12 @@
+<main class="content-container">
+  <div class="button-group language-wrapper">
+    <button class="button" [disabled]="currentLang === 'es'" (click)="changeAppLanguage('es')">ESP</button>
+    <button class="button" [disabled]="currentLang === 'en'" (click)="changeAppLanguage('en')">ENG</button>
+  </div>
+  <div class="content">
+   <router-outlet></router-outlet>
+ </div>
+</main>
+<div class="backdrop" *ngIf="loaderService.httpProgress() | async">
+  <div class="spinner"></div>
+</div>

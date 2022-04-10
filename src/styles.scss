@@ -1,0 +1,28 @@
+@import "styles/vars.scss";
+@import "styles/mixins";
+@import "styles/components/button-group";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html {
+  font-size: 12pt;
+}
+
+html {
+  font-family: monospace;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+mat-dialog-container#favorite-modal-component {
+  border: 3px solid $white-color;
+  border-radius: 11px;
+  background-color: $primary-color;
+}

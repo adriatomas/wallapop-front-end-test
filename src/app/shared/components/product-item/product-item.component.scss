@@ -1,0 +1,84 @@
+@import "../../../../styles/vars";
+@import "../../../../styles/mixins";
+
+.product {
+  align-items: center;
+  background: $secondary-color;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: calculateRem(420px);
+  margin: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+  width: $product-card-size;
+  &:hover {
+    border: solid 0.5px $white-color;
+    transform: scale(1.05);
+    &__description {
+      visibility: visible;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__description {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+    color: $white-color;
+    background: rgba(0, 0, 0, 0.75);
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  &:hover &__description {
+    opacity: 1;
+  }
+
+  &__favorite {
+    &--icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    flex: 2 1 0%;
+    min-height: 65%;
+    width: 100%;
+    img {
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 3 1 0%;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1em;
+    color: $white-color;
+
+    &--section {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      text-decoration: none;
+    }
+  }
+}

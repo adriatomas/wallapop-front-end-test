@@ -1,0 +1,44 @@
+<article class="product" *ngIf="!favoriteView; else favoriteProductView">
+  <div class="product__img">
+    <img [src]="product?.image" loading="lazy" [alt]="product?.title" />
+    <p class="product__description">{{ product?.description }}</p>
+  </div>
+  <div class="product__content">
+    <header class="product__header">
+      <p class="product__header--price">{{ product?.price }}€</p>
+      <div class="product__favorite">
+        <app-favorite-icon
+          (toggleSelection)="toggleFavorite.emit($event)"
+          [selected]="isFavorite"
+        ></app-favorite-icon>
+      </div>
+    </header>
+    <section class="product__content--section">
+      <h4 class="product__content--title">{{ product?.title }}</h4>
+    </section>
+    <section class="product__content--section">
+      <p class="product__content--email">{{ product?.email }}</p>
+    </section>
+  </div>
+</article>
+
+<ng-template #favoriteProductView>
+  <article class="product">
+    <div class="product__img">
+      <img [src]="product?.image" loading="lazy" [alt]="product?.title" />
+    </div>
+    <div class="product__content">
+      <header class="product__header">
+        <div class="product__favorite">
+          <app-favorite-icon
+            (toggleSelection)="toggleFavorite.emit($event)"
+            [selected]="isFavorite"
+          ></app-favorite-icon>
+        </div>
+      </header>
+      <section class="product__content--section">
+        <h4 class="product__content--title">{{ product?.title }}</h4>
+      </section>
+    </div>
+  </article>
+</ng-template>

@@ -1,0 +1,32 @@
+{
+  "app-title": "Wallapop frontend test",
+  "home": {
+    "title": "Lista de productos",
+    "no_results": "No se han encontrado resultados",
+    "api_error": "API Error:",
+    "search_input_placeholder": "Busca productos aquí",
+    "sort_by": {
+      "placeholder": "Ordenar",
+      "title": "Título",
+      "description": "Descripción",
+      "email": "Email",
+      "price": "Precio"
+    },
+    "manage_favorites": "Gestionar",
+    "favorite_title": "Productos favoritos"
+  },
+  "favorite_modal": {
+    "title": "Lista de productos favoritos",
+    "no_results": "No se ha encontrado nada por aquí"
+  },
+  "pagination": {
+    "next": "Siguiente",
+    "prev": "Anterior"
+  },
+  "not_found": {
+    "title": "Página no encontrada!"
+  },
+  "common": {
+    "back": "Volver"
+  }
+}

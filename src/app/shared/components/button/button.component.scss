@@ -1,0 +1,15 @@
+@import "../../../../styles/vars";
+.button {
+  margin-top: 0.5em;
+  cursor: pointer;
+  border-radius: 8px;
+  color: $white-color;
+  padding: 1em;
+  text-decoration: none;
+  background-color: $primary-color;
+  outline: none;
+  &:hover {
+    background-color: $secondary-color;
+    color: $black-color;
+  }
+}

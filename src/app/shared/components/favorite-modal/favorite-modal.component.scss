@@ -1,0 +1,26 @@
+@import "../../../../styles/vars";
+
+.favorite-modal {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  row-gap: 2em;
+  color: $white-color;
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(#{$product-card-size}, 1fr)
+    );
+    place-items: center;
+  }
+
+  &__no-items {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 22px;
+    margin-bottom: 1em;
+  }
+}

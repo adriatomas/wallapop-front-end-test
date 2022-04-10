@@ -1,0 +1,65 @@
+<div class="home-wrapper">
+  <section class="header-wrapper">
+    <h1 class="header-wrapper__title">{{ "home.title" | translate }}</h1>
+  </section>
+  <section class="controls-wrapper" [formGroup]="searchFormGroup">
+    <div class="controls-wrapper__form">
+      <app-search-input
+        class="controls-wrapper__input"
+        [placeholder]="'home.search_input_placeholder' | translate"
+        formControlName="search"
+      ></app-search-input>
+      <select formControlName="sortBy">
+        <option value="" disabled selected>
+          {{ "home.sort_by.placeholder" | translate }}
+        </option>
+        <option value="title">{{ "home.sort_by.title" | translate }}</option>
+        <option value="description">
+          {{ "home.sort_by.description" | translate }}
+        </option>
+        <option value="email">{{ "home.sort_by.email" | translate }}</option>
+        <option value="price">{{ "home.sort_by.price" | translate }}</option>
+      </select>
+    </div>
+    <div class="controls-wrapper__pagination">
+      <app-pagination
+        [pagination$]="paginationInfo$"
+        (nextPage)="next()"
+        (prevPage)="prev()"
+      ></app-pagination>
+    </div>
+  </section>
+  <section class="favorites-wrapper">
+    <p>{{'home.favorite_title' | translate}}: {{ (favoriteProducts$ | async)?.length || 0 }}</p>
+    <app-button
+      (clicked)="openFavoritesModal()"
+      class="favorite-wrapper__manage"
+      [value]="'home.manage_favorites' | translate"
+    ></app-button>
+  </section>
+  <ng-container>
+    <section
+      class="products-wrapper"
+      *ngIf="(products$ | async).length > 0; else noProducts"
+    >
+      <app-product-item
+        *ngFor="let product of products$ | async"
+        [product]="product"
+        [isFavorite]="favoriteProductService.isFavoriteProduct(product)"
+        (toggleFavorite)="toggleFavoriteProduct($event, product)"
+      >
+      </app-product-item>
+    </section>
+  </ng-container>
+</div>
+
+<ng-template #noProducts>
+  <div class="no-products-wrapper">
+    <h2 class="no-products-wrapper__title">
+      {{ "home.no_results" | translate }}
+    </h2>
+    <div class="no-products-wrapper__description"  *ngIf="getProductsError$ | async as error">
+      {{ "home.api_error" | translate }} {{ error }}
+    </div>
+  </div>
+</ng-template>

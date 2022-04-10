@@ -1,0 +1,4 @@
+<div class="button-group" *ngIf="(pagination$ | async) as pagination">
+  <button [disabled]="!(pagination.page > 0)" class="button" (click)="prevPage.emit()">{{'pagination.prev' | translate}}</button>
+  <button [disabled]="!(pagination.page < pagination.pages - 1)" class="button" (click)="nextPage.emit()">{{'pagination.next' | translate}}</button>
+</div>
