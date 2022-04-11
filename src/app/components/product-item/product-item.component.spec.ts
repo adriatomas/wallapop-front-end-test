@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { mockProduct } from '@app/helpers/mock-data';
 import { findComponent } from '@app/helpers/tests.helper';
 import { TranslateModule } from '@ngx-translate/core';
+import { FavoriteIconModule } from '../favorite-icon/favorite-icon.module';
 import { ProductItemComponent } from './product-item.component';
 
 describe('ProductItemComponent', () => {
@@ -12,7 +13,7 @@ describe('ProductItemComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [ProductItemComponent],
-        imports: [TranslateModule.forRoot()],
+        imports: [TranslateModule.forRoot(), FavoriteIconModule],
       }).compileComponents();
     })
   );
