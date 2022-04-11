@@ -1,4 +1,5 @@
 @import "../../../styles/vars";
+@import "../../../styles/mixins";
 
 .favorite-modal {
   width: 100%;
@@ -6,6 +7,20 @@
   display: grid;
   row-gap: 2em;
   color: $white-color;
+  position: relative;
+  &__close {
+    position: absolute;
+    right: 0%;
+    top: -2%;
+    button {
+      outline: none;
+      border: none;
+      background: transparent;
+      font-size: calculateRem(24px);
+      color: $white-color;
+      cursor: pointer;
+    }
+  }
   &__products {
     display: grid;
     grid-template-columns: repeat(
@@ -13,6 +28,7 @@
       minmax(#{$product-card-size}, 1fr)
     );
     place-items: center;
+    gap: 2rem 0.75rem;
   }
 
   &__no-items {
@@ -22,5 +38,16 @@
   &__title {
     font-size: 22px;
     margin-bottom: 1em;
+    margin-top: 0.5em;
+  }
+
+  @media (max-width: $mobile-l-px) {
+    &__title {
+      text-align: center;
+    } 
+
+    &__close {
+      right: 5%;
+    }
   }
 }

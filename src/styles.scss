@@ -25,4 +25,19 @@ mat-dialog-container#favorite-modal-component {
   border: 3px solid $white-color;
   border-radius: 11px;
   background-color: $primary-color;
+
+  @media (max-width: $mobile-l-px) {
+    padding: 24px 0;
+  }
+}
+
+.app-modal {
+  max-width: 80vw;
+  width: 1050px;
+  height: 685px;
+
+  @media (max-width: $mobile-l-px) {
+    max-width: 100% !important;
+  }
+
 }

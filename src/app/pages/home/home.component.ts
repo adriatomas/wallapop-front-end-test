@@ -81,11 +81,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   openFavoritesModal(): void {
+   
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.id = 'favorite-modal-component';
-    dialogConfig.width = '1050px';
-    dialogConfig.height = '685px';
+    dialogConfig.panelClass = 'app-modal';
 
     const modalDialog = this._matDialog.open(
       FavoriteModalComponent,

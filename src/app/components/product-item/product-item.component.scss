@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   height: calculateRem(420px);
-  margin: 0.75rem;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
   width: $product-card-size;
   &:hover {
